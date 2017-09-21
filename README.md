@@ -15,20 +15,20 @@ Manages a connection to the API as a state, as well as different forms of HTTP c
 
 #### Constructors
 
-**apikey** -- API key for a WPM account
+**apikey** -- API key for a WPM account<br />
 **secret** -- shared secret for a WPM account
 
 #### Private Methods
 
-**\_auth()** -- creates a signature using the apikey and secret
+**\_auth()** -- creates a signature using the apikey and secret<br />
 **\_is_json(rstring)** -- helper method, checks to see if a string is valid json
 
 #### Public Methods
 
-**get(host, uri, \*params)** -- performs an HTTP GET request
-**delete(host, uri)** -- performs an HTTP DELETE request
-**post(host, uri, body, \*params)** -- performs an HTTP POST request
-**put(host, uri, body, \*params)** -- performs an HTTP PUT request
+**get(host, uri, \*params)** -- performs an HTTP GET request<br />
+**delete(host, uri)** -- performs an HTTP DELETE request<br />
+**post(host, uri, body, \*params)** -- performs an HTTP POST request<br />
+**put(host, uri, body, \*params)** -- performs an HTTP PUT request<br />
 **post_multi_part(host, uri, file, \*params)** -- performs a multi-part POST request (specifically for uploading data files)
 
 ### <a name="Client">Client</a>
@@ -37,12 +37,12 @@ The main client which stores the API connection and provides access to the file 
 
 #### Constructors
 
-**apikey** -- API key for a WPM account
+**apikey** -- API key for a WPM account<br />
 **secret** -- shared secret for a WPM account
 
 #### Public Methods
 
-**script(\*id)** -- accesses the script management interface
+**script(\*id)** -- accesses the script management interface<br />
 **file(\*id)** -- accesses the file management interface
 
 ### <a name="File">File</a>
@@ -51,13 +51,13 @@ An interface for managing data files.
 
 #### Constructors
 
-**connection** -- an API connection inherited from the Client
+**connection** -- an API connection inherited from the Client<br />
 **uid** -- a file ID which is optional but required by some methods
 
 #### Public Methods
 
-**retrieve()** -- retrieves information for either all data files or for a specific ID
-**delete()** -- deletes a specified file by ID
+**retrieve()** -- retrieves information for either all data files or for a specific ID<br />
+**delete()** -- deletes a specified file by ID<br />
 **create(file\_path, \*mime\_type)** -- uploads a file... if a MIME type isn't specified it will attempt to guess it
 
 ### <a name="Script">Script</a>
@@ -66,12 +66,12 @@ An interface for managing test scripts.
 
 #### Constructors
 
-**connection** -- an API connection inherited from the Client
+**connection** -- an API connection inherited from the Client<br />
 **uid** -- a script ID which is optional but required by some methods
 
 #### Public Methods
 
-**retrieve()** -- retrieves information for either all scripts or for a specific ID
-**delete()** -- deletes a specified script by ID
-**create(name, body, \*\*kwargs)** -- creates a new test script... see script.py for valid keyword arguments
+**retrieve()** -- retrieves information for either all scripts or for a specific ID<br />
+**delete()** -- deletes a specified script by ID<br />
+**create(name, body, \*\*kwargs)** -- creates a new test script... see script.py for valid keyword arguments<br />
 **replace(name, body, \*\*kwargs)** -- replaces an existing test script by ID... see script.py for valid keyword arguments
