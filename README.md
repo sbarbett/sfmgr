@@ -4,9 +4,9 @@ Compact client for managing scripts and data files in Neustar Web Performance Ma
 
 ## Classes
 
-[Connect](#Connect)
-[Client](#Client)
-[File](#File)
+[Connect](#Connect)<br />
+[Client](#Client)<br />
+[File](#File)<br />
 [Script](#Script)
 
 ### <a name="Connect">Connect</a>
