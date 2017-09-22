@@ -8,7 +8,6 @@ class Connect:
     self.domain = '.wpm.neustar.biz/api/1.0'
     self.apikey = apikey
     self.secret = secret
-    self.headers = {'Accept': 'application/json'}
 
   def _auth(self):
     sig = self.apikey + self.secret + str(int(time()))
@@ -20,6 +19,12 @@ class Connect:
     except ValueError as e:
       return False
     return True
+
+  def _build_headers(self, content_type):
+      result = {'Accept': 'application/json'}
+      if content_type != '':
+          result['Content-Type'] = content_type
+      return result
 
   def get(self, host, uri, params=None):
     url = self.proto + host + self.domain + uri
@@ -42,14 +47,12 @@ class Connect:
     return self._do_call(url, 'POST', params=params, files=file, content_type='')
 
   def _do_call(self, url, method, params=None, body=None, files=None, content_type='application/json'):
-    headers = self.headers
-    if content_type != '':
-      headers.update({'Content-Type': content_type})
+    h1 = self._build_headers(content_type)
     if params == None:
       params = {'sig': self._auth(), 'apikey': self.apikey}
     else:
       params.update({'sig': self._auth(), 'apikey': self.apikey})
-    r = requests.request(method, url, params=params, data=body, headers=headers, files=files)
+    r = requests.request(method, url, params=params, data=body, headers=h1, files=files)
     if r.status_code == requests.codes.NO_CONTENT:
       return '{}'
     if self._is_json(r.text):
