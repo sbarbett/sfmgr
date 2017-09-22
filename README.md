@@ -40,8 +40,8 @@ Manages a connection to the API as a state, as well as different forms of HTTP c
 #### Private Methods
 
 *\_auth()* -- creates a signature using the apikey and secret<br />
-*\_is\_json(rstring)* -- helper method, checks to see if a string is valid json
-*\_build\_headers* -- helper method, construct headers for request
+*\_is\_json(rstring)* -- helper method, checks to see if a string is valid json<br />
+*\_build\_headers* -- helper method, construct headers for request<br />
 *\_do\_call* -- perform HTTP requests
 
 #### Public Methods
